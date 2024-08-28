@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/themes.css">
+
+  <title>Document</title>
+</head>
+
+<body class="dark-mode">
+  <nav class="navbar">
+    <div class="navbar-title">Compound Interest Calculator</div>
+    <button class="toggle-button" onclick="toggleMode()">Toggle Mode</button>
+  </nav>
+  <div class="container">
+    <h2>Calculate Compound Interest with Monthly Contributions</h2>
+    <form class="form" id="interestForm">
+      <div class="form-group">
+        <label for="initial">Initial Amount (P):</label>
+        <input type="number" id="initial" name="initial" required>
+      </div>
+      <div class="form-group">
+        <label for="rate">Interest Rate Annually (r)%:</label>
+        <input type="number" id="rate" name="rate" required>
+      </div>
+      <div class="form-group">
+        <label for="time">Time in Years (t):</label>
+        <input type="number" id="time" name="time" required>
+      </div>
+      <div class="form-group">
+        <label for="frequency">Compounding Frequency (n):</label>
+        <select id="frequency" name="frequency" required>
+          <option value="1">Annually</option>
+          <option value="2">Semi-Annually</option>
+          <option value="4">Quarterly</option>
+          <option value="12">Monthly</option>
+          <option value="365">Daily</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="contribution">Monthly Contribution (PMT):</label>
+        <input type="number" id="contribution" name="contribution" required>
+      </div>
+      <button type="button" onclick="calculateInterest()">Calculate</button>
+    </form>
+    <div id="resultCard" class="result-card">
+      <div class="result-item">
+        <h3>Total Contribution</h3>
+        <p id="totalContribution"></p>
+      </div>
+      <div class="result-item">
+        <h3>Future Value</h3>
+        <p id="futureValue"></p>
+      </div>
+      <div class="result-item">
+        <h3>Interest Earned</h3>
+        <p id="interestEarned"></p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="scripts/themes.js"></script>
+  <script src="scripts/currency.js"></script>
+  <script src="scripts/compound.js"></script>
+  <script>
+    document.getElementById('totalContribution').textContent = returnMoney(0)
+    document.getElementById('futureValue').textContent = returnMoney(0)
+    document.getElementById('interestEarned').textContent = returnMoney(0)
+  </script>
+
+</body>
+
+</html>
